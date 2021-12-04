@@ -13,7 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 
 /*Routes*/
 app.use(require('./routes/auth-routes'));
-app.use(require('./routes/user-routes'));
+app.use('/users', require('./routes/user-routes'));
+app.use('/tasks', require('./routes/task-routes'));
 
 /*setting*/
 require('dotenv').config();

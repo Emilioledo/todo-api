@@ -1,21 +1,24 @@
-export const createTask = (req, res) => {
-
-}
-
-export const getTasks = (req, res) => {
+const getTasks = (req, res) => {
     res.json('Get Tasks');
 }
 
-export const getTaskById = (req, res) => {
-
+const createTask = (req, res) => {
+    res.json('Create a task');
 }
 
-export const updateTaskById = (req, res) => {
-
+const getTaskById = (req, res) => {
+    res.json('Get tasks by ID');
 }
 
-export const deleteTaskById = (req, res) => {
-
+const updateTaskById = (req, res) => {
+    res.json('Update tasks by ID');
 }
+
+const deleteTaskById = (req, res) => {
+    res.json('Delete tasks by ID');
+}
+
+module.exports = { getTasks, createTask, getTaskById, updateTaskById, deleteTaskById };
+
 
 
