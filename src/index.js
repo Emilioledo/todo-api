@@ -5,7 +5,7 @@ const app = express();
 
 /*database*/
 connected();
-
+/*28:11*/
 /*Middlewares*/
 app.use(morgan('dev'));
 app.use(express.json());
