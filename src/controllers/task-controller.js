@@ -15,8 +15,8 @@ const createTask = async (req, res) => {
     const { body } = req.body;
     const newTask = new Task({ body });
     try {
-        const taskSave = await newTask.save();
-        res.status(201).json(taskSave);
+        const savedTask = await newTask.save();
+        res.status(201).json(savedTask);
     } catch (error) {
         res.status(400).json({
             msg: error

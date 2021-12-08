@@ -1,11 +1,15 @@
 const morgan = require('morgan');
 const express = require('express');
 const connected = require('./database');
+const initialSetup = require('./libs/initialSetup');
+//1:48:30
+/*set up*/
 const app = express();
+initialSetup.createRoles();
 
 /*database*/
 connected();
-/*1:02:49/
+
 /*Middlewares*/
 app.use(morgan('dev'));
 app.use(express.json());
