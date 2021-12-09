@@ -9,14 +9,17 @@ const verifyToken = async (req, res, next) => {
             return res.status(403).json({ msg: 'No token provided' });
         }
         const decoded = jwt.verify(token, process.env.SECRET_JWT);
-        const user = await User.findById(decoded.id, { password: 0 });
+        req.userId = decoded.id;
+        const user = await User.findById(req.userId, { password: 0 });
         if (!user) {
             return res.status(404).json({ msg: 'Invalid token' });
         }
         next();
     } catch (error) {
-        return res.status(401).json({msg:'Unauthorized'});
+        return res.status(401).json({ msg: 'Unauthorized' });
     }
 }
+
+
 
 module.exports = { verifyToken };
