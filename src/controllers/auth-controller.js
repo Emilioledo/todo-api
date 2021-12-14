@@ -29,8 +29,8 @@ const signUp = async (req, res) => {
 }
 
 const signIn = async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email: email }).populate('roles');
+    const { username, password } = req.body;
+    const user = await User.findOne({ username: username }).populate('roles');
     if (!user) {
         return res.status(400).json({ msg: 'User not found' });
     }

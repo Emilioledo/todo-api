@@ -1,6 +1,7 @@
 const morgan = require('morgan');
 const express = require('express');
 const connected = require('./database');
+const cors = require('cors');
 const initialSetup = require('./libs/initialSetup');
 
 /*set up*/
@@ -14,6 +15,11 @@ connected();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+}));
 
 /*Routes*/
 app.use('/auth', require('./routes/auth-routes'));
