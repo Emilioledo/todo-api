@@ -3,6 +3,7 @@ const express = require("express");
 const connected = require("./database");
 const cors = require("cors");
 const initialSetup = require("./libs/initialSetup");
+const logger = require("./logger/index");
 
 /*set up*/
 const app = express();
@@ -32,5 +33,5 @@ require("dotenv").config();
 const port = process.env.PORT;
 
 app.listen(port, () => {
-  console.log(`Connected on port: ${port}`);
+  logger.info(`Connected on port: ${port}`);
 });

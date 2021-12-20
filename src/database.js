@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const logger = require("./logger");
 require("dotenv").config();
 
 const connected = () => {
@@ -8,10 +9,10 @@ const connected = () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log("Database connected");
+      logger.info("Database connected");
     })
     .catch((error) => {
-      console.log(error);
+      logger.error(error);
     });
 };
 

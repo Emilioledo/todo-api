@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Role = require("../models/Role");
 const jwt = require("jsonwebtoken");
+const logger = require("../logger");
 require("dotenv").config();
 
 const signUp = async (req, res) => {
@@ -17,7 +18,7 @@ const signUp = async (req, res) => {
     } else {
       const role = await Role.findOne({ name: "User" });
       newUser.roles = [role._id];
-      console.log(newUser);
+      logger.info(newUser);
     }
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
@@ -25,6 +26,7 @@ const signUp = async (req, res) => {
     res.status(400).json({
       msg: error,
     });
+    logger.error(error);
   }
 };
 

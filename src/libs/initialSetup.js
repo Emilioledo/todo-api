@@ -1,3 +1,4 @@
+const logger = require("../logger");
 const Role = require("../models/Role");
 
 const createRoles = async () => {
@@ -9,9 +10,9 @@ const createRoles = async () => {
       new Role({ name: "Moderator" }).save(),
       new Role({ name: "Admin" }).save(),
     ]);
-    console.log(values);
+    logger.info(values);
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 };
 
