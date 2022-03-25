@@ -26,6 +26,8 @@ app.use(
 
 /*Routes*/
 app.use("/task", require("./routes/task-routes"));
+app.use("/auth", require("./routes/auth-routes"));
+
 
 /*setting*/
 require("dotenv").config();
